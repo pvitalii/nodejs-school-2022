@@ -57,7 +57,3 @@ The result of invocation:
 
 [tsc CLI options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 
-[TypeScript tips and tricks](https://ahmedrebai.medium.com/typescript-tips-and-tricks-with-typescript-for-angular-developers-ea000f50550c)
-
-[TypeScript Features to Avoid](https://www.executeprogram.com/blog/typescript-features-to-avoid)
-
