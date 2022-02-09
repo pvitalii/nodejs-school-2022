@@ -6,19 +6,13 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
   const query = url.parse(req.url, true).query;
-  let msg = '';
+  let msg = 'Hello World!';
   switch (query?.move) {
     case '<':
-      msg = `Iam going left`;
+      msg = 'left';
       break;
     case '>':
-      msg = `Im going right`;
-      break;
-    default:
-      msg = `I don't know such path`;
-  }
-  if (!query?.move) {
-    msg = `Let's go somewhere`;
+      msg = 'right';
   }
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
