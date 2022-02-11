@@ -31,10 +31,10 @@ interface UserEntity {
 }
 
 type UserUpdateData = Omit<UserEntity, 'id'>;
+
 const dto: UserUpdateData = {
   name: 'New name',
   email: 'new.email@email.com',
-  // id: 2,
 };
 
 // ---------------------------------
@@ -71,7 +71,7 @@ class Lamp {
   constructor(private energySource: IEnergySource) {}
 
   public on(): void {
-    console.log(`Got energy from ${this.energySource.getEnergy()}`);
+    console.log(`Got energy from ${this.energySource.getEnergy().toUpperCase()}`);
   }
 }
 
