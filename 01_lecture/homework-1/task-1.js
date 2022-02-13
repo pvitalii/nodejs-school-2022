@@ -17,9 +17,9 @@ const obj = {
     r: { a: { b: 56}}
 };
 
-const obj2 = cloneDeeply(obj)
+const obj2 = cloneDeeply(obj);
 
-obj2.x = 12
-obj.b.g = 15
+obj2.x = 12;
+obj.b.g = 15;
 
-console.log(obj2, obj)
+console.log(obj2, obj);

@@ -1,6 +1,6 @@
 function anagramCheck (str1, str2) {
     function toLetters(str) {
-        const letters = []
+        const letters = [];
         for (let i = 0; i < str.length; i++) {
             if (str[i].toLowerCase() !== str[i].toUpperCase()) letters.push(str[i].toLowerCase())
         }
