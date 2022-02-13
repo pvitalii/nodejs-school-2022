@@ -1,13 +1,14 @@
-const add = (a, b) => a+b;
+const add = (a, b) => a + b
 const wrapper = (func) => {
     const cache = {}
-    return (x, y) => {
-        if (`${x}+${y}` in cache) {
-            return `${cache[`${x}+${y}`]} from cache`
+    return (...args) => {
+        const key = JSON.stringify(args)
+        if (`${key}` in cache) {
+            return `${cache[`${key}`]} from cache`
         }
         else {
-            const result = func(x, y)
-            cache[`${x}+${y}`] = result
+            const result = JSON.stringify(func(...args))
+            cache[key] = result
             return `${result} calculated`
         }
     }
