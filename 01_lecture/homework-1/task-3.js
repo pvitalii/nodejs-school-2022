@@ -1,7 +1,7 @@
 function searchSerial(arr, value) {
     if (!arr.includes(value)) return 0
-    let maxCount = 0
-    let count = 1
+    let maxCount = 0;
+    let count = 1;
     for (let i = 0; i <= arr.length; i++) {
         if (arr[i] === value) {
             if (arr[i] === arr[i+1]) count++
@@ -14,4 +14,4 @@ function searchSerial(arr, value) {
     return maxCount
 }
 
-console.log(searchSerial([1,1,1,2,1,1,1,1,2,1,1], 1))
+console.log(searchSerial([1,1,1,2,1,1,1,1,2,1,1], 1));
