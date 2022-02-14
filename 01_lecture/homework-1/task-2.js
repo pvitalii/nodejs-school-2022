@@ -3,13 +3,13 @@ const wrapper = (func) => {
     const cache = {}
     return (...args) => {
         const key = JSON.stringify(args)
-        if (`${key}` in cache) {
-            return `${cache[`${key}`]} from cache`
+        if (key in cache) {
+            return cache[key]
         }
         else {
             const result = JSON.stringify(func(...args))
             cache[key] = result
-            return `${result} calculated`
+            return result
         }
     }
 };
