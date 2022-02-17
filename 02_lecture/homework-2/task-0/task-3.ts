@@ -1,4 +1,4 @@
-function searchSerial (arr: number[] | string[], value: number | string) {
+function searchSerial <Type extends number[] | string[]>(arr: Type, value: Type[0]) {
     if (!arr.some(e => e === value)) return 0
     let maxCount = 0;
     let count = 1;
