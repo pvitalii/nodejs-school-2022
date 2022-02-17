@@ -2,14 +2,12 @@ function cloneDeeply <Type>(obj: Type): Type {
     if (typeof obj !== 'object') {
         return obj
     }
-    else {
-        const clone: any = Array.isArray(obj) ? [] : {};
-        for (const key in obj) {
-            const cloneKey: string = key
-            clone[cloneKey] = cloneDeeply(obj[key])
-        }
-        return clone
+    const clone: any = Array.isArray(obj) ? [] : {};
+    for (const key in obj) {
+        const cloneKey: string = key
+        clone[cloneKey] = cloneDeeply(obj[key])
     }
+    return clone
 }
 
 const test: {} = {
