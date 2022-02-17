@@ -1,12 +1,15 @@
-function cloneDeeply (obj: {}) {
-    const clone = Array.isArray(obj) ? [] : {}
+function cloneDeeply <Type>(obj: Type): Type {
     if (typeof obj !== 'object') {
         return obj
     }
-    for (let key in obj) {
-        clone[key] = cloneDeeply(obj[key])
+    else {
+        const clone: any = Array.isArray(obj) ? [] : {};
+        for (const key in obj) {
+            const cloneKey: string = key
+            clone[cloneKey] = cloneDeeply(obj[key])
+        }
+        return clone
     }
-    return clone
 }
 
 const test: {} = {
@@ -23,4 +26,3 @@ test2['x']= 12;
 test['b'] = 15;
 
 console.log(test2, test);
-
