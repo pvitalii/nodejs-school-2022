@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .idea
 **/node_modules
 **/.build
@@ -11,16 +10,14 @@ lecture_07/video-hosting/docker-compose.yml
 # compiled output
 **/dist
 **/.serverless
-=======
->>>>>>> d60a19d (Initial commit)
 # Logs
 logs
 *.log
 npm-debug.log*
-<<<<<<< HEAD
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
 # OS
 .DS_Store
@@ -44,6 +41,7 @@ yarn-error.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 /playground
@@ -151,3 +149,5 @@ dist
 .tern-port
 >>>>>>> d60a19d (Initial commit)
 >>>>>>> 2fac519 (Initial commit)
+=======
+>>>>>>> 536a47b (Update .gitignore)
