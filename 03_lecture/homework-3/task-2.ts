@@ -5,13 +5,17 @@ class MyEventEmitter {
     }
 
     registerHandler(event: string, callback: (...args) => void): this {
-        if (!this.listeners[event]) this.listeners[event] = []
+        if (!this.listeners[event]) {
+            this.listeners[event] = []
+        }
         this.listeners[event].push(callback);
         return this
     }
 
     emitEvent(event: string, ...args): boolean {
-        if (!this.listeners[event]) return false
+        if (!this.listeners[event]) {
+            return false
+        }
         this.listeners[event].forEach(e => e(...args))
         return true
     }

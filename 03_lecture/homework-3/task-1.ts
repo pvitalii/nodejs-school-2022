@@ -9,31 +9,29 @@ if (isNaN(freq) || freq < 0) {
 }
 
 const ticks = [
-    os.platform,
-    os.arch,
-    () => os.userInfo().username,
-    () => os.cpus().map(e => e.model),
-    si.cpuTemperature,
+    () =>  `operating system: ${os.platform}`,
+    () => `architecture: ${os.arch}`,
+    () => `current user name: ${os.userInfo().username}`,
+    () => `cpu cores models: ${os.cpus().map(e => e.model)}`,
+    async () => `cpu temperature: ${JSON.stringify(await si.cpuTemperature())}`,
     async () => {
-        return `${(await si.graphics()).controllers.map(e => e.vendor)}; ${(await si.graphics()).controllers.map(e => e.model)}`
+        return `graphic controllers vendors and models: ${(await si.graphics()).controllers.map(e => e.vendor)}; ${(await si.graphics()).controllers.map(e => e.model)}`
     },
     async () => {
-        return `${os.totalmem()}; ${(await si.mem()).used}; ${os.freemem()}`
+        return `total memory, used memory, free memory in GBs: ${os.totalmem()}; ${(await si.mem()).used}; ${os.freemem()}`
     },
     async () => {
         return (await si.battery()).hasBattery ?
-            `${(await si.battery()).isCharging}; ${(await si.battery()).percent}; ${(await si.battery()).timeRemaining}`
+            `battery info (charging, percent, remaining time): ${(await si.battery()).isCharging}; ${(await si.battery()).percent}; ${(await si.battery()).timeRemaining}`
             :
-            'N/A'
+            'battery info (charging, percent, remaining time): N/A'
     }
 ]
 
 let i = 0;
-async function loop() {
-    console.log(await ticks[i]())
-    if (++i < ticks.length) {
-        setTimeout(loop, freq * 1000);
+const loop = setInterval(async () => {
+    console.log(await ticks[i++]());
+    if (i+1 > ticks.length) {
+        clearInterval(loop)
     }
-}
-setTimeout(loop, freq * 1000)
-
+}, freq * 1000)
